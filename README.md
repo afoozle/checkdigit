@@ -1,4 +1,4 @@
-Check Digit
+Check Digit [![Build Status](https://secure.travis-ci.org/afoozle/checkdigit.png)](http://travis-ci.org/afoozle/checkdigit)
 ===========
 
 This library is built to handle validating checkdigits in a variety of formats.
@@ -17,4 +17,3 @@ Unit tests can be run either using the phing build script
 or running phpunit yourself
 
     phpunit
-    

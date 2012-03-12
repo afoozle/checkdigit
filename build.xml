@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<project name="AgileGrapher" basedir="." default="test">
+
+    <!-- Sets the DSTAMP, TSTAMP and TODAY properties -->
+    <tstamp/>
+
+    <!-- Run all unit tests -->
+    <target name="test" description="Run unit tests">
+        <exec command="phpunit" logoutput="true" checkreturn="true" />
+    </target>
+</project>

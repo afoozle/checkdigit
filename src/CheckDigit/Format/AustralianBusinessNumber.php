@@ -5,6 +5,7 @@
  * @license   MIT - See LICENSE file supplied with this source code
  */
 namespace CheckDigit\Format;
+use CheckDigit\Algorithm\WeightedModulo;
 
 class AustralianBusinessNumber extends FormatAbstract implements FormatInterface
 {
@@ -12,6 +13,11 @@ class AustralianBusinessNumber extends FormatAbstract implements FormatInterface
      * @var array The weighting factors for use when validating
      */
     private $weightFactors = array(10, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19);
+
+    /**
+     * @var int The Modulus to use in the weighting algorithm
+     */
+    private $weightModulus = 89;
 
     protected function filter($abn) {
         return preg_replace('/[^0-9]/', '', $abn);
@@ -45,16 +51,13 @@ class AustralianBusinessNumber extends FormatAbstract implements FormatInterface
      */
     protected function valdidateAlgorithm($abn) {
         $abn[0] = $abn[0] - 1;
-        $total = 0;
-        for ($i = 0; $i < strlen($abn); $i++) {
-            $total += $abn[$i] * $this->weightFactors[$i];
-        }
 
-        if ($total % 89 !== 0) {
+        $algorithm = new WeightedModulo(89, $this->weightFactors);
+
+        if (!$algorithm->isCheckDigitValid($abn)) {
             $this->addError("ABN failed Check Digit validation");
             return false;
         }
-
         return true;
     }
 }

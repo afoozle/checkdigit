@@ -33,14 +33,19 @@ class WeightedModulo implements AlgorithmInterface
     }
 
     /**
-     * Generate the Luhn checkdigit for a partial number
+     * Generate the Weighted Modulo checkdigit from a partial number
      *
      * @param $partial string The partial to generate the digit for
      *
      * @return mixed The checkDigit
      */
     public function generateCheckDigit($partial) {
-        throw new \Exception("Not Supported");
+        $total = 0;
+        for ($i=strlen($partial)-1;$i>=0;$i--) {
+            $total += $partial[$i] * $this->_weightFactors[$i+2];
+        }
+
+        return $this->_modulous - ($total % $this->_modulous);
     }
 
     /**

@@ -52,7 +52,7 @@ class AustralianBusinessNumber extends FormatAbstract implements FormatInterface
     protected function valdidateAlgorithm($abn) {
         $abn[0] = $abn[0] - 1;
 
-        $algorithm = new WeightedModulo(89, $this->weightFactors);
+        $algorithm = new WeightedModulo($this->weightModulus, $this->weightFactors);
 
         if (!$algorithm->isCheckDigitValid($abn)) {
             $this->addError("ABN failed Check Digit validation");

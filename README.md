@@ -17,3 +17,28 @@ Unit tests can be run either using the phing build script
 or running phpunit yourself
 
     phpunit
+
+Check Digit Formats
+===================
+
+ * [Australian Business Number](http://en.wikipedia.org/wiki/Australian_Business_Number) ( AU-ABN )
+
+Planned Support ( Coming Soon )
+-------------------------------
+
+ * [Australian Company Number](http://en.wikipedia.org/wiki/Australian_Company_Number) ( AU-ACN )
+ * [Australian Tax File Number](http://en.wikipedia.org/wiki/Tax_File_Number) ( AU-TFN )
+ * [International Standard Book Number](http://en.wikipedia.org/wiki/International_Standard_Book_Number) ( ISBN-10 , ISBN-13 )
+ * [Shipping Container](http://en.wikipedia.org/wiki/ISO_6346) ( ISO 6346 )
+
+Check Digit Algorithms
+======================
+
+ * WeightedModulus
+ * [Luhn](http://en.wikipedia.org/wiki/Luhn_algorithm)
+
+Planned Support ( Coming Soon )
+-------------------------------
+
+ * [Luhn Mod N Algorithm](http://en.wikipedia.org/wiki/Luhn_mod_N_algorithm)
+ * [Verhoeff Algorithm](http://en.wikipedia.org/wiki/Verhoeff_algorithm)

@@ -6,6 +6,9 @@
  */
 namespace CheckDigit\Algorithm;
 
+/**
+ * Interface for all Check Digit Algorithms
+ */
 interface AlgorithmInterface
 {
     /**

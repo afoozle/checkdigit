@@ -21,13 +21,14 @@ or running phpunit yourself
 Check Digit Formats
 ===================
 
- * [Australian Business Number](http://en.wikipedia.org/wiki/Australian_Business_Number) ( AU-ABN )
+ * [Credit Card Number](http://en.wikipedia.org/wiki/Bank_card_number)
+ * [Australian Business Number](http://en.wikipedia.org/wiki/Australian_Business_Number)
 
 Planned Support ( Coming Soon )
 -------------------------------
 
- * [Australian Company Number](http://en.wikipedia.org/wiki/Australian_Company_Number) ( AU-ACN )
- * [Australian Tax File Number](http://en.wikipedia.org/wiki/Tax_File_Number) ( AU-TFN )
+ * [Australian Company Number](http://en.wikipedia.org/wiki/Australian_Company_Number)
+ * [Australian Tax File Number](http://en.wikipedia.org/wiki/Tax_File_Number)
  * [International Standard Book Number](http://en.wikipedia.org/wiki/International_Standard_Book_Number) ( ISBN-10 , ISBN-13 )
  * [Shipping Container](http://en.wikipedia.org/wiki/ISO_6346) ( ISO 6346 )
 

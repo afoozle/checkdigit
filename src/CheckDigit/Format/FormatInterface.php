@@ -12,6 +12,13 @@ namespace CheckDigit\Format;
 interface FormatInterface
 {
     /**
+     * Iterate and set the options for the Format Validator
+     *
+     * @param array $options An array of options to set
+     */
+    public function setOptions(array $options);
+
+    /**
      * Validate a value in this format
      *
      * @param string $value The value to validate

@@ -1,15 +1,15 @@
 {
-	"name": "checkdigit/checkdigit",
+	"name": "afoozle/checkdigit",
 	"description": "Check Digit Validation for PHP 5.3+",
 	"keywords": ["checkdigit"],
-	"homepage": "http://github.com/afoozle/CheckDigit",
+	"homepage": "http://github.com/afoozle/checkdigit",
 	"type": "library",
 	"license": "MIT",
 	"authors": [
 		{
 			"name": "Matthew Wheeler",
 			"email": "matt@yurisko.net",
-			"homepage": "http://github.com/afoozle"
+			"homepage": "http://afoozle.github.com"
 		}
 	],
 	"require": {

@@ -8,13 +8,46 @@ namespace CheckDigit\Format;
 
 abstract class FormatAbstract implements FormatInterface
 {
+    /**
+     * @var array the error stack for this format validator
+     */
+    protected $errors = array();
+
+    /**
+     * @abstract
+     * @param $value
+     */
     abstract protected function filter($value);
 
     abstract protected function validateFormat($value);
 
-    abstract protected function valdidateAlgorithm($value);
+    abstract protected function validateAlgorithm($value);
 
-    protected $_errors = array();
+    /**
+     * Constructor
+     * @param array|null $options
+     */
+    public function __construct(array $options = null) {
+        if ($options !== null && count($options)) {
+            $this->setOptions($options);
+        }
+    }
+    
+    /**
+     * Iterate and set the options provided
+     * @param array $options
+     */
+    public function setOptions(array $options) {
+        foreach($options as $optionName => $optionValue) {
+            $optionMethod = sprintf('set%s',$optionName);
+            
+            if (method_exists($this, $optionMethod) && is_callable(array($this,$optionMethod))) {
+                throw new \InvalidArgumentException("Invalid option $optionName");
+            }
+            
+            call_user_func(array($this, $optionMethod));
+        }
+    }
 
     /**
      * Validate the provided value
@@ -32,7 +65,7 @@ abstract class FormatAbstract implements FormatInterface
             return false;
         }
 
-        if (!$this->valdidateAlgorithm($value)) {
+        if (!$this->validateAlgorithm($value)) {
             return false;
         }
 
@@ -44,14 +77,14 @@ abstract class FormatAbstract implements FormatInterface
      * @return array The array of errors
      */
     public function getErrors() {
-        return $this->_errors;
+        return $this->errors;
     }
 
     /**
      * Clear errors from the error stack
      */
     protected function clearErrors() {
-        $this->_errors = array();
+        $this->errors = array();
     }
 
     /**
@@ -60,7 +93,7 @@ abstract class FormatAbstract implements FormatInterface
      * @return bool
      */
     public function hasErrors() {
-        return count($this->_errors) > 0;
+        return count($this->errors) > 0;
     }
 
     /**
@@ -74,7 +107,7 @@ abstract class FormatAbstract implements FormatInterface
             $developerErrorString = $userErrorString;
         }
 
-        $this->_errors[] = array('user'      => trim($userErrorString),
+        $this->errors[] = array('user'      => trim($userErrorString),
                                  'developer' => trim($developerErrorString)
         );
     }

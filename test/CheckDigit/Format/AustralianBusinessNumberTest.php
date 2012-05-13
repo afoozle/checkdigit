@@ -6,7 +6,7 @@
  */
 namespace CheckDigit\Format;
 
-class AustralianBusinessNumberTest extends \PHPUnit_Framework_testCase
+class AustralianBusinessNumberTest extends \PHPUnit_Framework_TestCase
 {
     public function testValidNumber() {
         $validator = new AustralianBusinessNumber();

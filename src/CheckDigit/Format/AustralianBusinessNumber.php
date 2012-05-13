@@ -49,7 +49,7 @@ class AustralianBusinessNumber extends FormatAbstract implements FormatInterface
      *
      * @return bool
      */
-    protected function valdidateAlgorithm($abn) {
+    protected function validateAlgorithm($abn) {
         $abn[0] = $abn[0] - 1;
 
         $algorithm = new WeightedModulo($this->weightModulus, $this->weightFactors);
